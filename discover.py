@@ -1,4 +1,6 @@
 # This file prints discovers all test cases and prints out their IDs.
+import compat
+from config import get_setting
 import unittest
 import argparse
 
@@ -27,7 +29,7 @@ class Discover:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--testdir', dest='testdir', default='../tests/legacy', help='Directory to choose tests from')
+    parser.add_argument('--testdir', dest='testdir', default=get_setting('StartDir'), help='Directory to choose tests from')
     options = parser.parse_args()
 
     disc = Discover()

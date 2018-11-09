@@ -7,8 +7,8 @@ try:
 except ImportError:
     from tkinter import *
 
-from guitest.view import MainWindow
-from guitest.model import UnittestProject
+from view import MainWindow
+from model import UnittestProject
 
 
 def main_loop(Model=UnittestProject):

@@ -8,8 +8,8 @@ try:
 except ImportError:
     from queue import Queue, Empty  # python 3.x
 
-from guitest.events import EventSource
-from guitest.model import TestMethod
+from events import EventSource
+from model import TestMethod
 import pipes
 
 

@@ -1,5 +1,5 @@
 from datetime import datetime
-from guitest.events import EventSource
+from events import EventSource
 import sys
 
 

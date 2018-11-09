@@ -7,17 +7,18 @@ try:
     from ttk import *
     import tkMessageBox
     import tkFileDialog as filedialog
+    from tkreadonly import ReadOnlyText
 except ImportError:
     from tkinter import filedialog
     from tkinter import *
     from tkinter.font import *
     from tkinter.ttk import *
     from tkinter import messagebox as tkMessageBox
+    from tkreadonly import ReadOnlyText
 
-from tkreadonly import ReadOnlyText
-from guitest.model import TestMethod, TestCase, TestModule, ModelLoadError
-from guitest.runner import Runner
-from fs5test.utils.config import get_setting, update_settings, load_settings
+from model import TestMethod, TestCase, TestModule, ModelLoadError
+from runner import Runner
+from config import get_setting, update_settings
 import os
 
 
@@ -293,7 +294,7 @@ class MainWindow(object):
 
         self.testdir_name = StringVar()
         self.testdir_widget = Entry(self.details_frame, textvariable= self.testdir_name, width=40)
-        self.testdir_name.set('../tests/legacy')
+        self.testdir_name.set(get_setting('StartDir'))
         self.testdir_widget.grid(column=1, row=1, sticky=(W))
 
         # Reload Tests Load Button.
@@ -499,7 +500,7 @@ class MainWindow(object):
         TestMethod.bind('status_update', self.on_nodeStatusUpdate)
 
 
-    def reload_project(self, testdir='../tests/legacy'):
+    def reload_project(self, testdir=get_setting('StartDir')):
         # If the directory does not exist, throw an error message and don't do anything.
         if os.path.exists(testdir) is False:
             dialog = tkMessageBox.showerror
@@ -512,7 +513,7 @@ class MainWindow(object):
         self.project = self.load_project(self.root, self.Model, testdir)
 
 
-    def load_project(self, root, Model, testdir='../tests/legacy'):
+    def load_project(self, root, Model, testdir=get_setting('StartDir')):
         self.Model = Model
         project = None
         while project is None:

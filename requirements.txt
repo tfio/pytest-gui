@@ -1,0 +1,2 @@
+Pygments==2.2.0
+tkreadonly==0.6.1
