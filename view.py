@@ -61,7 +61,7 @@ class MainWindow(object):
 
         # Root window
         self.root = root
-        self.root.title('ASD Test Interface')
+        self.root.title('GUI Test Runner')
         self.root.geometry('1024x768')
         self.root.option_add('*tearOff', FALSE)
 
@@ -277,16 +277,16 @@ class MainWindow(object):
         self.content.add(self.details_frame)
 
         # Add support instrument IP Address.
-        self.instrument_ip_address_label = Label(self.details_frame, text = "Instrument IP:")
-        self.instrument_ip_address_label.grid(column=0, row=0, sticky=(W))
+        self.instrument_ip_address_label = Label(self.details_frame, text = "Meta Data")
+        # self.instrument_ip_address_label.grid(column=0, row=0, sticky=(W))
 
         self.instr_ip_addr = StringVar()
         self.instr_ip_addr_widget = Entry(self.details_frame, textvariable= self.instr_ip_addr, width=60)
         self.instr_ip_addr.set(get_setting('Host') or 'Not Found')
-        self.instr_ip_addr_widget.grid(column=1, row=0, sticky=(W))
+        # self.instr_ip_addr_widget.grid(column=1, row=0, sticky=(W))
 
-        self.reload_ip_address = Button(self.details_frame, text='Update IP Address', command=self.cmd_load_ip_address)
-        self.reload_ip_address.grid(column=1, row=0, sticky=(E))
+        self.reload_ip_address = Button(self.details_frame, text='Update Meta', command=self.cmd_load_ip_address)
+        # self.reload_ip_address.grid(column=1, row=0, sticky=(E))
 
         # Add label for test directory
         self.testdir_label = Label(self.details_frame, text="Test Directory:")
