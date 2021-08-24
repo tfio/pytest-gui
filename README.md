@@ -11,6 +11,11 @@ This provides a GUI based test runner for Python Unittests and py.tests.
 
 ## Getting Started
 
+* If running on Mac: We need to install TKInter library:
+```
+brew install python3-tkinter
+```
+
 * Clone the pytest-gui repository
 * Install dependencies (`pip install -r requirements.txt`)
 * Run command and select the directory to search/run tests from (`python main.py`)
